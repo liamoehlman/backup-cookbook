@@ -11,4 +11,4 @@ depends 'rightscale'
   supports os
 end
 
-recipe "backup::default", "Sets up environment"
+recipe "backup::default", "Installs the backup gem"
