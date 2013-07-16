@@ -16,6 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+rightscale_marker :begin
 
 gem_package 'backup' do
   version node['backup']['version']
@@ -41,3 +42,5 @@ template "#{node['backup']['config_path']}/config.rb" do
   group node['backup']['group']
   mode '0600'
 end
+
+rightscale_marker :end
