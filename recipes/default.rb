@@ -18,14 +18,31 @@
 #
 rightscale_marker :begin
 
-gem_package 'backup' do
-  version node['backup']['version']
+# gem_package 'backup' do
+#   version node['backup']['version']
+# end
+
+# node['backup']['dependencies'].each do |gem, ver|
+#   gem_package gem do
+#     version ver if ver && ver.length > 0
+#   end
+# end
+package "libxml2-dev" do
+  action :install
 end
 
-node['backup']['dependencies'].each do |gem, ver|
-  gem_package gem do
-    version ver if ver && ver.length > 0
-  end
+package "libxslt1-dev" do
+  action :install
+end
+
+gem_package "backup" do
+  gem_binary "/usr/bin/gem1.9.1"
+  version "3.0.25"
+end
+
+gem_package "fog" do
+  gem_binary "/usr/bin/gem1.9.1"
+  version "1.4.0"
 end
 
 %w[ config_path model_path ].each do |dir|
