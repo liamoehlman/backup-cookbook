@@ -45,6 +45,11 @@ gem_package "fog" do
   version "1.4.0"
 end
 
+gem_package "parallel" do
+  gem_binary "/usr/bin/gem1.9.1"
+  version "0.5.12"
+end
+
 %w[ config_path model_path ].each do |dir|
   directory node['backup'][dir] do
     owner node['backup']['user']
